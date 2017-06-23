@@ -1,0 +1,35 @@
+---
+- name: 1.Check if EPEL repo is already configured.
+  stat: path={{ epel_repofile_path }}
+  register: epel_repofile_result
+ 
+- name: 2.Install EPEL repo.
+  yum:
+    name: "{{ epel_repo_url }}"
+    state: present
+  register: result
+  when: not epel_repofile_result.stat.exists
+ 
+- name: 3.Import EPEL GPG key.
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+  when: not epel_repofile_result.stat.exists
+
+- name: 4.Check if MariaDB Repo is already configured.
+  stat: path={{ mariadb_repofile_path }}
+  register: mariadb_repofile_result
+
+- name: 5.Install MariaDB repo.
+  yum:
+    name: "{{ mariadb_base_url }}"
+    state: present
+  register: result
+  when: not mariadb_repofile_result.stat.exists
+
+- name: 6.Import MariaDB GPG key.
+  rpm_key:
+    key: "{{ mariadb_gpg_key_url }}"
+    state: present
+  when: not mariadb_repofile_result.stat.exists
+ 

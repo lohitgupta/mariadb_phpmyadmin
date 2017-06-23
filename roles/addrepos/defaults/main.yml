@@ -1,0 +1,8 @@
+---
+epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm"
+epel_repo_gpg_key_url: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6"
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+
+mariadb_base_url: "http://yum.mariadb.org/10.1/centos6-amd64"
+mariadb_gpg_key_url: "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
+mariadb_repofile_path: "/etc/yum.repos.d/MariaDB.repo"

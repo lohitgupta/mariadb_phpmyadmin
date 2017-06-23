@@ -1,0 +1,11 @@
+---
+  - name: install mariadb server
+    yum: 
+      name: MariaDB-server
+      state: latest
+
+  - name: install mariadb client 
+    yum:
+        name: MariaDB-client
+        state: latest
+

@@ -1,0 +1,6 @@
+---
+  - name: install PHPMyadmin 
+    yum: 
+      name: phpmyadmin 
+      state: latest
+
